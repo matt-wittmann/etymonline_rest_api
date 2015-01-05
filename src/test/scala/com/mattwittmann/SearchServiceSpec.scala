@@ -31,7 +31,7 @@ class SearchServiceImplSpec extends WordSpec with WireMockTest with BeforeAndAft
         inbox.send(impl, Search("test", SearchMode("none")))
         inbox.receive(5.seconds) match {
           case DictionaryEntries(entries) =>
-            assert(50 === entries.length)
+            assert(3 === entries.length)
             for (entry <- entries) {
               log.info("\nTerm: {}\nDefinition: {}", entry.term, entry.definition)
             }

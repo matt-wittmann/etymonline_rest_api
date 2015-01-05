@@ -28,9 +28,9 @@ class SearchModeServiceImplSpec extends WordSpec with WireMockTest with BeforeAn
           case SearchModes(options) =>
             assert(4 === options.size)
             assert("Natural Language" === options(SearchMode("nl")))
-            assert("Find single term" === options(SearchMode("term")))
-            assert("Find any term" === options(SearchMode("or")))
-            assert("Find exact phrase" === options(SearchMode("phrase")))
+            assert("Single Term" === options(SearchMode("term")))
+            assert("Any Terms" === options(SearchMode("or")))
+            assert("Exact Match" === options(SearchMode("phrase")))
             assert(false === options.isDefinedAt(SearchMode("none")))
           case x => fail(s"Unknown message received: $x")
         }
